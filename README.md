@@ -4,7 +4,8 @@ Tably: Library for generating html tables
 ## Introduction
 
 Tably is a powerful JavaScript library that allows you to generate, customize, and manipulate HTML tables dynamically. With a few lines of code, you can create a fully featured table with paging, sorting, and filtering capabilities. Tably also provides easy customization and formatting options, including the ability to include custom buttons in the table header and footer.
-Getting Started
+
+## Getting Started
 
 To start using Tably, first include the Tably CSS and JavaScript files in your HTML file:
 ```html
