@@ -1,0 +1,141 @@
+:root {
+  --tably-footer-toolbar-height: 35px;
+  --tably-header-toolbar-height: 35px;
+  --tably-body-margin: 5px;
+  --tably-table-search: 300px;
+  --tably-body-height: calc(100vh - var(--tably-footer-toolbar-height) - var(--tably-header-toolbar-height) - 66px);
+}
+
+.tably {
+   background-color:rgb(245, 245, 245);
+}
+
+.tably.table tbody tr {
+  line-height: 0.9;
+}
+
+.tably .table tbody tr:hover {
+  background-color: rgb(183, 230, 252);
+  color: rgb(7, 7, 7);
+  font-weight: 200;
+}
+
+.tably .table{
+  border-spacing: 0px !important;
+  /* remove  */
+  border-collapse: unset !important;
+}
+
+.tably-table-wrapper {
+  max-height: var(--tably-body-height);
+  overflow-y: auto;
+  max-width: 100vw;
+  position: relative;
+  background-color: #ffffff;
+  margin: var(--tably-body-margin);;
+  z-index: 1;
+}
+
+.tably .tably-table-wrapper .table thead tr th {
+  border-top: 1px solid #d1d7dd !important;
+  border-bottom: 1px solid #d1d7dd !important;
+}
+
+.tably .tably-table-wrapper .table thead,
+.tably .tably-table-wrapper .table tfoot {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffffff !important;
+  box-shadow: 0px 10px 0px 0px rgb(252, 251, 250);
+  /* Add a box shadow to create a non-transparent border effect */
+}
+
+.tably .tably-table-wrapper .table td,
+.tably .tably-table-wrapper .table th {
+  word-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tably-footer-container {
+  position: sticky;
+  bottom: 0;
+}
+
+.tably-table-search {
+  width: var(--tably-table-search);
+  margin: 5px;
+  /* Add space before the table */
+}
+
+.tably-table-footer {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: 1px solid #dee2e6;
+  padding: 5px;
+  width: 100%;
+  height: var(--tably-footer-toolbar-height);
+  white-space: nowrap;
+  margin-top: 5px;
+  /* Add space before the bottom toolbar */
+}
+
+.tably-table-footer-page .btn {
+  width: 40px;
+}
+
+.tably-table-footer-page {
+  justify-items: center;
+  align-items: center;
+  width: 40%;
+  /* Adjust the width as needed */
+}
+
+.table-footer-buttons .btn {
+  width: 35px;
+}
+
+.tably-table-footer-buttons {
+  justify-items: center;
+  align-items: center;
+  width: 40%;
+  /* Adjust the width as needed */
+}
+
+.tably-table-footer .btn {
+  font-size: 12px;
+  /* Make the buttons small */
+}
+
+.tably-checkbox-header,
+.tably-checkbox-cell {
+  max-width: 50px;
+}
+
+.tably button {
+  min-width: 30px;
+}
+
+.tably-total-pages {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.tably-current-page {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.tably-header-toolbar {
+  margin: 5px;
+  display: flex;
+  height: var(--tably-header-toolbar-height);
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1px;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  border-radius: 2px;
+}

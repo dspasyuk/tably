@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="tably.css">
+    <script src="tably.js" defer></script>
+    <title>My Table Library</title>
+    
+    
+    
+    
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const data = tably.prototype.test();
+            const options = {
+                perPage: 25,
+                enableSearch: true,
+                customParser: function(key, value){return value},
+                filterColumns: ['name'],
+                className: '',
+                hiddenColumns: [ '_id'],
+                hideFilters: false, // Hide column filters
+                hideSearch: false, // Hide global search
+                customFooterButtons: [
+                {
+                    text: '',
+                    action: () => { console.log('Custom 1 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fas fa-plus', // Add custom icon class (from Font Awesome or another library)
+                },
+                {
+                    text: '',
+                    action: () => { console.log('Custom 2 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fas fa-grip-horizontal', // Add custom icon class (from Font Awesome or another library)
+                },
+                {
+                    text: '',
+                    action: () => { console.log('Custom3 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fa fa-expand-arrows-alt', // Add custom icon class (from Font Awesome or another library)
+                },                {
+                    text: '',
+                    action: () => { console.log('Custom 4 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fas fa-clipboard', // Add custom icon class (from Font Awesome or another library)
+                },                {
+                    text: '',
+                    action: () => { console.log('Custom 5 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fas fa-calculator', // Add custom icon class (from Font Awesome or another library)
+                },
+            ],
+            customHeaderButtons: [
+                {
+                    text: '',
+                    action: () => { console.log('Custom 6 clicked'); },
+                    className: 'btn-default btn-sm',
+                    icon: 'fas fa-plus', // Add custom icon class (from Font Awesome or another library)
+                },
+
+            ],
+            };
+
+            const table = new tably(data, options);
+            table.render('#tably');
+        });
+    </script>
+</head>
+<body>
+    <div id="tably"></div>
+</body>
+</html>
