@@ -74,3 +74,8 @@ Tably allows you to customize your table through various options. Here are the m
 - customParser: A function to parse cell data. This function should take two arguments: the key (column) and the value (cell data), and should return the parsed value.
 - customFooterButtons: An array of custom button objects to display in the table footer. Each button object should have the following properties: 
   - text (the button text), action, className, icon
+  - 
+## Tably is released under MIT License
+
+
+
