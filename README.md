@@ -1,5 +1,6 @@
 # tably
 Tably: Library for generating html tables  
+Live Previe here https://deonis1.github.io/tably/
 
 ## Introduction
 
