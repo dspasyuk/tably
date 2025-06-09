@@ -3,8 +3,9 @@
   --tably-header-toolbar-height: 35px;
   --tably-body-margin: 5px;
   --tably-table-search: 300px;
-  --tably-body-height: calc(100vh - var(--tably-footer-toolbar-height) - var(--tably-header-toolbar-height) - 66px);
+  --tably-body-height: calc(100vh - var(--tably-footer-toolbar-height) - var(--tably-header-toolbar-height) - 60px);
 }
+
 
 .tably {
    background-color:rgb(245, 245, 245);
@@ -12,6 +13,21 @@
 
 .tably.table tbody tr {
   line-height: 0.9;
+}
+
+.tably .table tbody {
+  z-index: 1; /* Ensure rows have a lower stacking order */
+  position: relative; /* Reset stacking context */
+}
+
+.tably-filter-header select,
+.tably-filter-header input {
+  z-index: 1050; /* Ensure fields stack above table rows */
+  position: relative;
+}
+
+.tably .table tbody tr {
+  z-index: auto; /* Prevent interference with sticky elements */
 }
 
 .tably .table tbody tr:hover {
@@ -28,6 +44,7 @@
 
 .tably-table-wrapper {
   max-height: var(--tably-body-height);
+  /* min-height: var(--tably-body-height); */
   overflow-y: auto;
   max-width: 100vw;
   position: relative;
@@ -35,6 +52,8 @@
   margin: var(--tably-body-margin);;
   z-index: 1;
 }
+
+
 
 .tably .tably-table-wrapper .table thead tr th {
   border-top: 1px solid #d1d7dd !important;
@@ -45,17 +64,18 @@
 .tably .tably-table-wrapper .table tfoot {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 1000;
   background-color: #ffffff !important;
-  box-shadow: 0px 10px 0px 0px rgb(252, 251, 250);
+  box-shadow: 0px 1px 0px 0px rgb(252, 251, 250);
   /* Add a box shadow to create a non-transparent border effect */
 }
 
 .tably .tably-table-wrapper .table td,
 .tably .tably-table-wrapper .table th {
-  word-wrap: break-word;
-  white-space: nowrap;
-  overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    padding: 8px; /* Optional: Adjusts cell padding */
+    border-right: 1px solid #dee2e6;
 }
 
 .tably-footer-container {
@@ -66,12 +86,13 @@
 .tably-table-search {
   width: var(--tably-table-search);
   margin: 5px;
+  padding: 5px !important;
   /* Add space before the table */
 }
 
 .tably-table-footer {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid #dee2e6;
   padding: 5px;
@@ -79,6 +100,10 @@
   height: var(--tably-footer-toolbar-height);
   white-space: nowrap;
   margin-top: 5px;
+  margin-bottom: 5px;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
   /* Add space before the bottom toolbar */
 }
 
@@ -87,9 +112,8 @@
 }
 
 .tably-table-footer-page {
-  justify-items: center;
-  align-items: center;
-  width: 40%;
+  padding: 1px;
+  width: 38%;
   /* Adjust the width as needed */
 }
 
@@ -100,8 +124,33 @@
 .tably-table-footer-buttons {
   justify-items: center;
   align-items: center;
-  width: 40%;
+  width: 45%;
   /* Adjust the width as needed */
+}
+
+.tably-rows-per-page {
+  width: 100px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: calc(var(--tably-footer-toolbar-height) - 5px);
+  text-align: center;
+  padding: 5px;
+  padding-bottom: 6px;
+  margin-top: 3px;
+  /* Adjust the width as needed */
+}
+
+.tably-footer-buttons {
+  justify-items: center;
+  align-items: center;
+  width: 50px;
+  height: calc(var(--tably-footer-toolbar-height) - 5px);
+  /* Adjust the width as needed */
+}
+
+.tably-table-footer-info {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .tably-table-footer .btn {
@@ -135,7 +184,98 @@
   align-items: center;
   justify-content: flex-start;
   padding: 1px;
-  /* border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc; */
   border-radius: 2px;
+}
+
+.tably-filter-header{
+ cursor: pointer;
+}
+
+.tably-color-red {
+  background-color: #ff009d;
+}
+.tably-color-green {
+  background-color: #a6f8a6;
+}
+.tably-color-blue {
+  background-color: #ccccff;
+}
+.tably-color-yellow {
+  background-color: #eeee69;
+}
+.tably-color-grey {
+  background-color: #ececec;
+}
+.tably-color-turquoise {
+  background-color: #c6ffe7;
+}
+.tably-color-yellow {
+  background-color: #ecf23740;
+}
+
+.tably-context-menu {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.tably-context-menu-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.tably-context-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+.tably-dropdown {
+  position: relative;
+}
+
+.tably-dropdown-button {
+  width: 100%;
+  text-align: left;
+  padding: 5px 10px;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tably-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 3000; /* Higher than other elements */
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  overflow: auto;
+  width: fit-content;
+}
+
+.tably-dropdown-menu.active {
+  display: block;
+  z-index: 9000;
+}
+
+.tably-dropdown-menu label {
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.tably-dropdown-menu label:hover {
+  background-color: #f8f9fa;
+}
+
+.active{
+  background-color: #eff2f5!important;
+  z-index: 1050 !important;
 }
